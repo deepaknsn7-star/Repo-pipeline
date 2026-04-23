@@ -84,5 +84,5 @@ stages:
             provider: 'azurerm'
             command: 'apply'
             environmentServiceNameAzureRM: 'Demo connection'
-            commandOptions: 'tfplan'
+            commandOptions: '--auto-approve'
 
