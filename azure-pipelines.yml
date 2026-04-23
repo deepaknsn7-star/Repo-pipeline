@@ -1,0 +1,31 @@
+trigger: none
+
+pool:
+  name: Demo agent
+
+stages:
+  - stage: terraformStage
+    displayName: "Basic Stage"
+
+    jobs:
+      - job: terraformjob
+        displayName: "Run Basic Command"
+        steps:
+
+
+        - task: TerraformInstaller@1
+          displayName: terraform installing
+          inputs:
+            terraformVersion: 'latest'
+
+
+            - task: TerraformTask@5
+              inputs:
+                provider: 'azurerm'
+                command: 'init'
+                backendServiceArm: 'Demo connection'
+                backendAzureRmResourceGroupName: 'rg_deepak'
+                backendAzureRmStorageAccountName: 'deepakstoragepip'
+                backendAzureRmContainerName: 'gitdemo'
+                backendAzureRmKey: 'firstdemopipeline'
+
